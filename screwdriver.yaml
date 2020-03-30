@@ -10,4 +10,4 @@ jobs:
         requires: [~commit]
 
     tag:
-        requires: [~sd@555:functional-test-r]
+        requires: [~sd@7:functional-test-r]
