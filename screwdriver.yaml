@@ -1,0 +1,13 @@
+shared:
+  image: node:8
+  steps:
+    - echo: echo hi
+jobs:
+    pr:
+        requires: [~pr]
+
+    release:
+        requires: [~commit]
+
+    tag:
+        requires: [~sd@555:functional-test-r]
