@@ -6,7 +6,7 @@ jobs:
   component:
     requires: [~commit, ~sd@888:dev-api-w]
 
-  functional-test-rksd:
+  functional-test-r:
     requires: [~sd@6:pre-functional-test-r]
 
   functional-test-api:
