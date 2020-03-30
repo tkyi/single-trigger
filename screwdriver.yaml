@@ -3,11 +3,15 @@ shared:
   steps:
     - echo: echo hi
 jobs:
-    pr:
-        requires: [~pr]
+  component:
+    requires: [~commit, ~sd@888:dev-api-w]
 
-    release:
-        requires: [~commit]
+  functional-test-rksd:
+    requires: [~sd@6:pre-functional-test-r]
 
-    tag:
-        requires: [~sd@555:functional-test-r]
+  functional-test-api:
+    requires: [~sd@6:pre-functional-test-api]
+
+  pr:
+    requires:
+      - ~pr
