@@ -12,5 +12,5 @@ jobs:
   release:
     requires: [~component]
   tag:
-    requires: [~sd@13:functional-test-api]
+    requires: [~sd@7:functional-test-api]
 
