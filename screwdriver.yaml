@@ -4,92 +4,13 @@ shared:
     - echo: echo hi
 
 jobs:
-    pull-request:
-        requires: [~pr]
-    funcapi-p:
-        requires: [~post-commit, ~r-post-release, ~api-post-release]
+  pull-request:
+    requires: [~pr]
 
-    dev-funcapi-deploy-w:
-        requires: [funcapi-p]
+  component:
+    requires: [~commit]
+  release:
+    requires: [~component]
+  tag:
+    requires: [~sd@13:functional-test-api]
 
-    funcjk-p:
-        requires: [~post-commit, ~r-post-release, ~api-post-release]
-
-    dev-funcjk-deploy-w:
-        requires: [funcjk-p]
-
-    funcjd-p:
-        requires: [~post-commit, ~r-post-release, ~api-post-release]
-
-    dev-funcjd-deploy-w:
-        requires: [funcjd-p]
-
-    post-commit:
-      requires: [~commit]
-
-    r-post-release:
-      requires: [~sd@5:release]
-
-    api-post-release:
-      requires: [~sd@777:release]
-
-    pre-functional-test-api:
-      requires: [dev-funcapi-deploy-w, dev-funcjk-deploy-w, dev-funcjd-deploy-w, api-post-release]
-
-    pre-functional-test-r:
-      requires: [dev-funcapi-deploy-w, dev-funcjk-deploy-w, dev-funcjd-deploy-w, r-post-release]
-
-    dev-deploy-w:
-      requires: [~sd@5:tag, ~sd@777:tag]
-
-    kek-dev-p:
-      requires: [dev-deploy-w]
-
-    dev-kek-deploy-w:
-      requires: [kek-dev-p]
-
-    dek-dev-p:
-      requires: [dev-deploy-w]
-
-    dev-dek-deploy-w:
-      requires: [dek-dev-p]
-
-    stage-deploy:
-      requires: []
-
-    kek-stage-p:
-        requires: [stage-deploy]
-        
-    kek-stage-deploy-e:
-        requires: [kek-stage-p]
-
-    kek-stage-deploy-w:
-        requires: [kek-stage-deploy-e]
-    dek-stage-p:
-        requires: [stage-deploy]
-
-    stage-dek-deploy-e:
-        requires: [dek-stage-p]
-
-    stage-dek-deploy-w:
-        requires: [stage-dek-deploy-e]
-
-    prod-deploy:
-      requires: []
-
-    kek-prod-p:
-      requires: [prod-deploy]
-
-    prod-kek-deploy-e:
-      requires: [kek-prod-p]
-
-    prod-kek-deploy-w:
-      requires: [kek-prod-p]
-
-    dek-prod-p:
-      requires: [prod-deploy]
-    prod-dek-deploy-e:
-      requires: [dek-prod-p]
-
-    prod-dek-deploy-w:
-      requires: [dek-prod-p]
