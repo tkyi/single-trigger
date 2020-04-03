@@ -31,7 +31,7 @@ jobs:
       requires: [~sd@5:release]
 
     api-post-release:
-      requires: [~sd@777:release]
+      requires: [~sd@12:release]
 
     pre-functional-test-api:
       requires: [dev-funcapi-deploy-w, dev-funcjk-deploy-w, dev-funcjd-deploy-w, api-post-release]
@@ -40,7 +40,7 @@ jobs:
       requires: [dev-funcapi-deploy-w, dev-funcjk-deploy-w, dev-funcjd-deploy-w, r-post-release]
 
     dev-deploy-w:
-      requires: [~sd@5:tag, ~sd@777:tag]
+      requires: [~sd@5:tag, ~sd@12:tag]
 
     kek-dev-p:
       requires: [dev-deploy-w]
