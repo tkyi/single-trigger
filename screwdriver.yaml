@@ -2,16 +2,28 @@ shared:
   image: node:8
   steps:
     - echo: echo hi
+
 jobs:
-  component:
-    requires: [~commit, ~sd@888:dev-api-w]
+  component-api-dev:
+    requires: [~commit, ~sd@12:component]
+  
+  dev-api-w:
+    requires: [component-api-dev]
 
-  functional-test-r:
-    requires: [~sd@6:pre-functional-test-r]
+  component-ui-dev:
+    requires: [~commit, ~sd@999:component]
+  
+  dev-ui-w:
+    requires: [component-ui-dev]
 
-  functional-test-api:
-    requires: [~sd@6:pre-functional-test-api]
+  component-k-dev:
+    requires: [~commit]
+  
+  dev-k-w:
+    requires: [component-k-dev]
 
-  pr:
-    requires:
-      - ~pr
+  component-d-dev:
+    requires: [~commit]
+  
+  dev-d-w:
+    requires: [component-d-dev]
