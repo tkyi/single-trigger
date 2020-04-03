@@ -4,7 +4,7 @@ shared:
     - echo: echo hi
 jobs:
   component:
-    requires: [~commit, ~sd@888:dev-api-w]
+    requires: [~commit, ~sd@13:dev-api-w]
 
   functional-test-r:
     requires: [~sd@6:pre-functional-test-r]
