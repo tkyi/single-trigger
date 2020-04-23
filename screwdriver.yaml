@@ -1,3 +1,4 @@
+# pipeline 3
 shared:
   image: node:8
   steps:
@@ -28,10 +29,10 @@ jobs:
       requires: [~commit]
 
     r-post-release:
-      requires: [~sd@5:release]
+      requires: [~sd@2:release]
 
     api-post-release:
-      requires: [~sd@12:release]
+      requires: [~sd@5:release]
 
     pre-functional-test-api:
       requires: [dev-funcapi-deploy-w, dev-funcjk-deploy-w, dev-funcjd-deploy-w, api-post-release]
@@ -40,7 +41,7 @@ jobs:
       requires: [dev-funcapi-deploy-w, dev-funcjk-deploy-w, dev-funcjd-deploy-w, r-post-release]
 
     dev-deploy-w:
-      requires: [~sd@5:tag, ~sd@12:tag]
+      requires: [~sd@2:tag, ~sd@5:tag]
 
     kek-dev-p:
       requires: [dev-deploy-w]
