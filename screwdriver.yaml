@@ -1,3 +1,4 @@
+#pipeline 4
 shared:
   image: node:8
   steps:
@@ -7,10 +8,10 @@ jobs:
     requires: [~commit, ~sd@13:dev-api-w]
 
   functional-test-r:
-    requires: [~sd@6:pre-functional-test-r]
+    requires: [~sd@3:pre-functional-test-r]
 
   functional-test-api:
-    requires: [~sd@6:pre-functional-test-api]
+    requires: [~sd@3:pre-functional-test-api]
 
   pr:
     requires:
