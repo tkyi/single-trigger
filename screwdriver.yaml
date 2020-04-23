@@ -1,3 +1,4 @@
+# pipeline 5
 shared:
   image: node:8
   steps:
@@ -12,5 +13,5 @@ jobs:
   release:
     requires: [~component]
   tag:
-    requires: [~sd@7:functional-test-api]
+    requires: [~sd@4:functional-test-api]
 
